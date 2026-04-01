@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+&mt { flavor = "balanced"; };
+
 / {
     keymap {
         compatible = "zmk,keymap";
