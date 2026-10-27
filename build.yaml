@@ -13,8 +13,22 @@
 #
 ---
 include:
+  # Dongle (central): plugged into the dock/computer over USB.
+  # Change the board to e.g. xiao_ble if you use a Seeed XIAO nRF52840.
+  - board: nice_nano_v2
+    shield: lily58_dongle
+    snippet: studio-rpc-usb-uart
+  # Both halves are peripherals that connect to the dongle
   - board: nice_nano_v2
     shield: lily58_left
-    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: lily58_left_peripheral-nice_nano_v2-zmk
   - board: nice_nano_v2
     shield: lily58_right
+  # Flash to every device before re-pairing them in the new setup
+  - board: nice_nano_v2
+    shield: settings_reset
+  # Original setup without a dongle (left half as central). Uncomment to build.
+  # - board: nice_nano_v2
+  #   shield: lily58_left
+  #   snippet: studio-rpc-usb-uart

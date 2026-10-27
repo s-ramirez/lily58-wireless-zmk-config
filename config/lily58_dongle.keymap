@@ -1,0 +1,2 @@
+/* The dongle runs the keymap, so share the one used by the halves. */
+#include "lily58.keymap"
